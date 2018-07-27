@@ -8,13 +8,14 @@ import View from '@/components/View'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld,
-      redirect: '/todo'
+      component: HelloWorld
+      // redirect: '/todo'
     }, {
       path: '/todo',
       name: 'Todo',
@@ -47,3 +48,18 @@ export default new Router({
       }
     }]
 })
+
+// 全局前置守卫
+router.beforeEach((to, from, next) => {
+  // ...
+  console.log('beforeEach', to, from, next)
+  debugger
+  next()
+})
+
+// 全局后置钩子
+router.afterEach((to, from) => {
+  console.log('beforeEach', to, from)
+})
+
+export default router
