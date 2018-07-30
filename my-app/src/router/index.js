@@ -5,6 +5,7 @@ import Todo from '@/components/Todo'
 import Foo from '@/components/Foo'
 import Bar from '@/components/Bar'
 import View from '@/components/View'
+import Store from '@/pages/Store'
 
 Vue.use(Router)
 
@@ -16,6 +17,10 @@ const router = new Router({
       name: 'HelloWorld',
       component: HelloWorld
       // redirect: '/todo'
+    }, {
+      path: '/store',
+      name: 'Store',
+      component: Store
     }, {
       path: '/todo',
       name: 'Todo',
@@ -51,15 +56,13 @@ const router = new Router({
 
 // 全局前置守卫
 router.beforeEach((to, from, next) => {
-  // ...
-  console.log('beforeEach', to, from, next)
-  debugger
+  // console.log('beforeEach', to, from, next)
   next()
 })
 
 // 全局后置钩子
 router.afterEach((to, from) => {
-  console.log('beforeEach', to, from)
+  // console.log('beforeEach', to, from)
 })
 
 export default router
