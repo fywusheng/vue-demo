@@ -39,8 +39,9 @@ export default {
       window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
     },
     add () {
-      let data = {count: 10}
-      this.$store.commit('increment', data)
+      // let data = {count: 10}
+      // this.$store.commit('increment', data)
+      this.$store.dispatch('increment', {count: 100})
     },
     reduce () {
       this.$store.commit('reduce')
